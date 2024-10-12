@@ -27,9 +27,12 @@ bt.addEventListener("click",()=>{
             <li class="font-bold text-xl w-[40%] bg-red-400 py-4 rounded-[8px]"></li>
             <button class="btn " onclick="subadd(this)">Subtopic</button>
             <button class="btn " onclick="strike(this)">Done</button>
+            <button class="btn " onclick="delmain(this)">Delete</button>
+            
 
             <p id="date" class="font-bold text-lg"> </p>
             <p class="done font-bold text-lg"> </p></div>
+
 
 
     
@@ -125,11 +128,12 @@ function subadd(button) {
 
         if (subtopicValue !== "") {
             const newdiv = document.createElement("ul");
-            newdiv.className = "list-disc ml-12 flex gap-12 items-center font-bold text-lg mb-4 mt-2";
+            newdiv.className = "list-disc ml-12 flex gap-6 items-center font-bold text-lg mb-4 mt-2";
 
             newdiv.innerHTML = `
-                <li class="w-[45%] bg-slate-200 p-4 rounded-[16px]">${subtopicValue}</li>
+                <li class="w-[45%] bg-slate-200 p-4 rounded-[16px] mr-6">${subtopicValue}</li>
                 <button class="btn" onclick="strike(this)">Done</button>
+                <button class="btn mr-0" onclick="del(this)">Delete</button>
                 <p class="done font-bold text-lg"></p>
             `;
 
@@ -143,3 +147,21 @@ function subadd(button) {
     });
 }
 
+function delmain(button){
+
+const getparent=button.parentElement.parentElement
+
+getparent.remove(); 
+
+
+
+}
+function del(button){
+
+    const getparent=button.parentElement
+
+getparent.remove(); 
+
+
+
+}
